@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: core-service
+        uri: lb://core-service
+        predicates:
+        - Path=/core/**
+        filters:
+        - RewritePath=/core/(?.*), /$\{path}
+     
