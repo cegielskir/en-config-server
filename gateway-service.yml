@@ -12,7 +12,7 @@ logging:
               
 zuul:
   routes:
-    department:
+    core:
       path: /core/**
       serviceId: core-service
      
