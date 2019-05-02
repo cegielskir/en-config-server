@@ -1,14 +1,18 @@
-spring:
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-      - id: core-service
-        uri: lb://core-service
-        predicates:
-        - Path=/core/**
-        filters:
-        - RewritePath=/core/(?.*), /$\{path}
+server:
+  port: 8060
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka/
+
+logging:
+  pattern: 
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+              
+zuul:
+  routes:
+    department:
+      path: /core/**
+      serviceId: core-service
      
