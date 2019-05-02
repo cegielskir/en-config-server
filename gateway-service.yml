@@ -12,7 +12,7 @@ logging:
               
 zuul:
   routes:
-    main:
+    core:
       path: /core/**
       serviceId: main-service
      
