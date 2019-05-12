@@ -15,4 +15,7 @@ zuul:
     core:
       path: /core/**
       serviceId: main-service
+    simpleclient:
+      path: /simpleclient/**
+      serviceId: simpleclient-service
      
