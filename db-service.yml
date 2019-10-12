@@ -1,15 +1,15 @@
 server:
-  port: 9090
-  
+  port: 9092
+ 
 spring:
   application:
-    name: main-service
+    name: db-service
   cloud:
     config:
       discovery:
         enabled: true
     failFast: true
- 
+    
 eureka:
   client:
     serviceUrl:
