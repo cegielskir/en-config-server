@@ -1,5 +1,14 @@
 server:
   port: 8061
+  
+spring:
+  application:
+    name: discovery-service
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      failFast: true
  
 eureka:
   instance:
