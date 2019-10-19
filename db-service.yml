@@ -13,11 +13,11 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8061/eureka/
+      defaultZone: http://${EUREKA_URL:localhost}:8061/eureka/
     healthcheck:
       enabled: true
       
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost/articles
+      uri: mongodb://${DB_URL:localhost}/articles

@@ -11,10 +11,8 @@ spring:
       failFast: true
  
 eureka:
-  instance:
-    hostname: localhost
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${EUREKA_URL:localhost}:${server.port}/eureka/
