@@ -15,3 +15,5 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${EUREKA_URL:localhost}:${server.port}/eureka/
+  server:
+    peer-node-read-timeout-ms: 60000
