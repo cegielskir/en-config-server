@@ -8,7 +8,6 @@ spring:
     config:
       discovery:
         enabled: true
-      failFast: true
       allowOverride: true
       overrideNone: true
       overrideSystemProperties: false
