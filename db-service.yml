@@ -8,7 +8,9 @@ spring:
     config:
       discovery:
         enabled: true
-    failFast: true
+  data:
+    mongodb:
+      uri: mongodb://${DB_URL:localhost}/articles
     
 eureka:
   client:
@@ -17,7 +19,3 @@ eureka:
     healthcheck:
       enabled: true
       
-spring:
-  data:
-    mongodb:
-      uri: mongodb://${DB_URL:localhost}/articles
