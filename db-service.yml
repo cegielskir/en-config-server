@@ -13,6 +13,8 @@ spring:
       uri: mongodb://${DB_URL:localhost}/articles
     
 eureka:
+  hostname: db-service
+  port: 9092
   client:
     serviceUrl:
       defaultZone: http://${EUREKA_URL:localhost}:8061/eureka/
