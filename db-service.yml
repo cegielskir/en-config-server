@@ -12,6 +12,10 @@ spring:
     mongodb:
       uri: mongodb://${DB_URL:localhost}/articles
     
+ribbon:
+  eureka:
+    enabled: false
+
 eureka:
   hostname: db-service
   port: 9092
