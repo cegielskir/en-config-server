@@ -10,6 +10,10 @@ spring:
         enabled: true
     failFast: true
  
+ ribbon:
+  eureka:
+    enabled: false
+ 
 eureka:
   client:
     serviceUrl:
