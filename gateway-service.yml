@@ -42,13 +42,13 @@ ribbon:
       
 zuul:
   ignoredServices: '*'
-   host:
+  host:
       time-to-live: -1
       connect-timeout-millis: 5000
       max-per-route-connections: 10000
       max-total-connections: 5000
       socket-timeout-millis: 60000
-   semaphore:
+  semaphore:
       max-semaphores: 500    
   routes:
     core:
