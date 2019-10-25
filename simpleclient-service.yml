@@ -10,7 +10,7 @@ spring:
         enabled: true
     failFast: true
  
- ribbon:
+ribbon:
   eureka:
     enabled: false
  
