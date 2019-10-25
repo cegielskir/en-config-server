@@ -18,7 +18,8 @@ eureka:
       defaultZone: http://${EUREKA_URL:localhost}:8061/eureka/
     healthcheck:
       enabled: true
-
+    fetchRegistry: true
+        
 logging:
   pattern: 
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
@@ -34,10 +35,3 @@ zuul:
     db:
       path: /db/**
       serviceId: db-service
-  ws:
-  brokerages:
-    compare:
-      end-points: /ws
-      brokers:  /topic
-      destination-prefixes: /app
-     
