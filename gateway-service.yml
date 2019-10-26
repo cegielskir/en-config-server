@@ -12,19 +12,19 @@ spring:
         predicates:
         - Path=/core/**
         filters:
-        - RewritePath=/core/(?.*), /$\{remains}
+        - RewritePath=/core/(?<segment>.*), /$\{segment}
       - id: db-service
         uri: lb://DB-SERVICE
         predicates:
         - Path=/db/**
         filters:
-        - RewritePath=/core/(?.*), /$\{remains}
+        - RewritePath=/core/(?<segment>.*), /$\{segment}
       - id: simpleclient-service
         uri: lb://SIMPLECLIENT-SERVICE
         predicates:
         - Path=/simpleclient/**
         filters:
-        - RewritePath=/core/(?.*), /$\{remains}
+        - RewritePath=/core/(?<segment>.*), /$\{segment}
 
 eureka:
   client:
