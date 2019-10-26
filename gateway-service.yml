@@ -33,9 +33,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://${EUREKA_URL:localhost}:8061/eureka/
-    healthcheck:
-      enabled: true
-    fetchRegistry: true
+
         
 logging:
   pattern: 
