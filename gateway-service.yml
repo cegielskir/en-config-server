@@ -25,6 +25,10 @@ spring:
         - Path=/simpleclient/**
         filters:
         - RewritePath=/core/(?<segment>.*), /$\{segment}
+      - id: main-service-ws
+        uri: ws://MAIN-SERVICE
+        predicates:
+        - Path=/core/ws/**
 
 eureka:
   client:
