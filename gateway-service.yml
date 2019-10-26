@@ -11,14 +11,20 @@ spring:
         uri: lb://MAIN-SERVICE
         predicates:
         - Path=/core/**
+        filters:
+        - RewritePath=/core/(?.*), /$\{remains}
       - id: db-service
         uri: lb://DB-SERVICE
         predicates:
         - Path=/db/**
+        filters:
+        - RewritePath=/core/(?.*), /$\{remains}
       - id: simpleclient-service
         uri: lb://SIMPLECLIENT-SERVICE
         predicates:
         - Path=/simpleclient/**
+        filters:
+        - RewritePath=/core/(?.*), /$\{remains}
 
 eureka:
   client:
