@@ -17,15 +17,15 @@ spring:
           enabled: true
       routes:
       - id: main-service
-        uri: lb://${MAIN_URL:localhost}:9090
+        uri: lb://main-service
         predicates:
         - Path=/core/**
       - id: db-service
-        uri: lb://${DB_URL:localhost}:9092
+        uri: lb://db-service
         predicates:
         - Path=/db/**
       - id: simpleclient-service
-        uri: lb://${SIMPLE_URL:localhost}:9091
+        uri: lb://simpleclient-service
         predicates:
         - Path=/simpleclient/**
 
