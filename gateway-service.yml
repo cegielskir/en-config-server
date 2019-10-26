@@ -8,15 +8,15 @@ spring:
     gateway:
       routes:
       - id: main-service
-        uri: lb://main-service
+        uri: lb://MAIN-SERVICE
         predicates:
         - Path=/core/**
       - id: db-service
-        uri: lb://db-service
+        uri: lb://DB-SERVICE
         predicates:
         - Path=/db/**
       - id: simpleclient-service
-        uri: lb://simpleclient-service
+        uri: lb://SIMPLECLIENT-SERVICE
         predicates:
         - Path=/simpleclient/**
 
