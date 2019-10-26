@@ -17,23 +17,17 @@ spring:
           enabled: true
       routes:
       - id: main-service
-        uri: lb://main-service
+        uri: lb://${MAIN_URL:localhost}:9090
         predicates:
         - Path=/core/**
-        filters:
-        - RewritePath=/core/(?.*), /$\{path}
       - id: db-service
-        uri: lb://db-service
+        uri: lb://${DB_URL:localhost}:9092
         predicates:
         - Path=/db/**
-        filters:
-        - RewritePath=/db/(?.*), /$\{path}
       - id: simpleclient-service
-        uri: lb://simpleclient-service
+        uri: lb://${SIMPLE_URL:localhost}:9091
         predicates:
         - Path=/simpleclient/**
-        filters:
-        - RewritePath=/simpleclient/(?.*), /$\{path}
 
 eureka:
   client:
