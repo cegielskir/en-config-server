@@ -12,22 +12,19 @@ spring:
       overrideNone: true
       overrideSystemProperties: false
       gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-      - id: main-service
-        uri: lb://main-service
-        predicates:
-        - Path=/core/**
-      - id: db-service
-        uri: lb://db-service
-        predicates:
-        - Path=/db/**
-      - id: simpleclient-service
-        uri: lb://simpleclient-service
-        predicates:
-        - Path=/simpleclient/**
+        routes:
+        - id: main-service
+          uri: lb://main-service
+          predicates:
+          - Path=/core/**
+        - id: db-service
+          uri: lb://db-service
+          predicates:
+          - Path=/db/**
+        - id: simpleclient-service
+          uri: lb://simpleclient-service
+          predicates:
+          - Path=/simpleclient/**
 
 eureka:
   client:
