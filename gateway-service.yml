@@ -11,6 +11,29 @@ spring:
       allowOverride: true
       overrideNone: true
       overrideSystemProperties: false
+      gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: main-service
+        uri: lb://main-service
+        predicates:
+        - Path=/core/**
+        filters:
+        - RewritePath=/core/(?.*), /$\{path}
+      - id: db-service
+        uri: lb://db-service
+        predicates:
+        - Path=/db/**
+        filters:
+        - RewritePath=/db/(?.*), /$\{path}
+      - id: simpleclient-service
+        uri: lb://simpleclient-service
+        predicates:
+        - Path=/simpleclient/**
+        filters:
+        - RewritePath=/simpleclient/(?.*), /$\{path}
 
 eureka:
   client:
@@ -39,24 +62,4 @@ ribbon:
    connection-timeout: 3000
    eureka:
       enabled: true
-      
-zuul:
-  ignoredServices: '*'
-  host:
-      time-to-live: -1
-      connect-timeout-millis: 5000
-      max-per-route-connections: 10000
-      max-total-connections: 5000
-      socket-timeout-millis: 60000
-  semaphore:
-      max-semaphores: 500    
-  routes:
-    core:
-      path: /core/**
-      serviceId: main-service
-    simpleclient:
-      path: /simpleclient/**
-      serviceId: simpleclient-service
-    db:
-      path: /db/**
-      serviceId: db-service
+  
