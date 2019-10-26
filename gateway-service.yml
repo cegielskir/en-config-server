@@ -11,7 +11,7 @@ spring:
         uri: lb://main-service
         predicates:
         - Path=/core/**
-     - id: db-service
+      - id: db-service
         uri: lb://db-service
         predicates:
         - Path=/db/**
