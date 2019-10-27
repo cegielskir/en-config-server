@@ -26,9 +26,9 @@ spring:
         filters:
         - RewritePath=/core/(?<segment>.*), /$\{segment}
       - id: main-service-ws
-        uri: ws://MAIN-SERVICE
+        uri: lb://MAIN-SERVICE
         predicates:
-        - Path=/core/ws/**
+        - Path=/text-comparator/**
 
 eureka:
   client:
