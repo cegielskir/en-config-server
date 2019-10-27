@@ -28,7 +28,7 @@ spring:
       - id: main-service-ws
         uri: lb://MAIN-SERVICE
         predicates:
-        - Path=/text-comparator
+        - Path=/**
 
 eureka:
   client:
