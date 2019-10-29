@@ -11,6 +11,10 @@ spring:
   data:
     mongodb:
       uri: mongodb://${DB_URL:localhost}/articles
+  sleuth:
+    integration:
+      websockets:
+        enabled: false
     
 ribbon:
   eureka:
