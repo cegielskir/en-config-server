@@ -29,6 +29,15 @@ spring:
         uri: lb://MAIN-SERVICE
         predicates:
         - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+            - "*"
+            allowedMethods: 
+            - "*"
+            allowed-headers:
+            - "*"
 
 eureka:
   client:

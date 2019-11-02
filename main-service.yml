@@ -5,15 +5,8 @@ spring:
   application:
     name: main-service
   cloud:
-    config:
-      discovery:
-        enabled: true
-    failFast: true
-  sleuth:
-    integration:
-      websockets:
-        enabled: false
-  globalcors:
+    gateway:
+      globalcors:
         corsConfigurations:
           '[/**]':
             allowedOrigins:
@@ -22,6 +15,14 @@ spring:
             - "*"
             allowed-headers:
             - "*"
+    config:
+      discovery:
+        enabled: true
+    failFast: true
+  sleuth:
+    integration:
+      websockets:
+        enabled: false
  
 eureka:
   client:
