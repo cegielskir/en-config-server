@@ -13,6 +13,15 @@ spring:
     integration:
       websockets:
         enabled: false
+  globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+            - "*"
+            allowedMethods: 
+            - "*"
+            allowed-headers:
+            - "*"
  
 eureka:
   client:
