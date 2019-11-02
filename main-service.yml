@@ -5,16 +5,6 @@ spring:
   application:
     name: main-service
   cloud:
-    gateway:
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins:
-            - "*"
-            allowedMethods: 
-            - "*"
-            allowed-headers:
-            - "*"
     config:
       discovery:
         enabled: true
