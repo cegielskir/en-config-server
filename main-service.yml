@@ -9,6 +9,10 @@ spring:
       discovery:
         enabled: true
     failFast: true
+  sleuth:
+    integration:
+      websockets:
+        enabled: false
  
 eureka:
   client:
