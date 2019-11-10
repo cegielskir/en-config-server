@@ -6,20 +6,48 @@ spring:
   application:
     name: gateway-service
   cloud:
-    config:
-      discovery:
-        enabled: true
-      allowOverride: true
-      overrideNone: true
-      overrideSystemProperties: false
+    gateway:
+      routes:
+      - id: main-service
+        uri: lb://MAIN-SERVICE
+        predicates:
+        - Path=/core/**
+        filters:
+        - RewritePath=/core/(?<segment>.*), /$\{segment}
+      - id: db-service
+        uri: lb://DB-SERVICE
+        predicates:
+        - Path=/db/**
+        filters:
+        - RewritePath=/core/(?<segment>.*), /$\{segment}
+      - id: simpleclient-service
+        uri: lb://SIMPLECLIENT-SERVICE
+        predicates:
+        - Path=/simpleclient/**
+        filters:
+        - RewritePath=/core/(?<segment>.*), /$\{segment}
+      - id: main-service-ws
+        uri: lb://MAIN-SERVICE
+        predicates:
+        - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+            - "http://localhost:3000"
+            allowedMethods: 
+            - "*"
+            allowed-headers:
+            - "*"
+            allow-credentials: true
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://${EUREKA_URL:localhost}:8061/eureka/
-    healthcheck:
-      enabled: true
-    fetchRegistry: true
+  instance:
+    preferIpAddress: false
+
         
 logging:
   pattern: 
@@ -40,24 +68,4 @@ ribbon:
    connection-timeout: 3000
    eureka:
       enabled: true
-      
-zuul:
-  ignoredServices: '*'
-  host:
-      time-to-live: -1
-      connect-timeout-millis: 5000
-      max-per-route-connections: 10000
-      max-total-connections: 5000
-      socket-timeout-millis: 60000
-  semaphore:
-      max-semaphores: 500    
-  routes:
-    core:
-      path: /core/**
-      serviceId: main-service
-    simpleclient:
-      path: /simpleclient/**
-      serviceId: simpleclient-service
-    db:
-      path: /db/**
-      serviceId: db-service
+  
