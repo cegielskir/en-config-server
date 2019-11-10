@@ -1,6 +1,7 @@
+hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 20000
+
 server:
   port: 8060
-  connection-timeout:20000
   
 spring:
   application:

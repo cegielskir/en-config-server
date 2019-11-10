@@ -1,6 +1,5 @@
 server:
   port: 9091
-  connection-timeout:20000
   
 spring:
   application:
