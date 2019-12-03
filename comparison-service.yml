@@ -3,7 +3,7 @@ server:
   
 spring:
   application:
-    name: simpleclient-service
+    name: comparison-service
   cloud:
     config:
       discovery:

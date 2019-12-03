@@ -21,10 +21,10 @@ spring:
         - Path=/db/**
         filters:
         - RewritePath=/core/(?<segment>.*), /$\{segment}
-      - id: simpleclient-service
-        uri: lb://SIMPLECLIENT-SERVICE
+      - id: comparison-service
+        uri: lb://COMPARISON-SERVICE
         predicates:
-        - Path=/simpleclient/**
+        - Path=/comparison/**
         filters:
         - RewritePath=/core/(?<segment>.*), /$\{segment}
       - id: main-service-ws
